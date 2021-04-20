@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Project</title>
+</head>
+<body>
+    <h1>Card Information Storage</h1>
+    <p>Pick Your Card: <span>
+        <select id="ddlViewBy">
+            <option value="0" selected>Please select</option>
+            <option value="1" >Visa</option>
+            <option value="2">Master Card</option>
+            <option value="3">American Express </option>
+            <option value="4">Discover</option>
+          </select>
+        </span></p>
+
+    <p>Please Enter Your Credit Information (numbers and spaces only)</p>
+    <input type="text" id="userI" placeholder="9999 9999 9999 9999">
+    <button onclick="btn()">Submit</button>
+    <p id="p1"></p>
+</body>
+<script>
+
+var fname = "Romelo"
+var lname = "Lopez"
+var cardType = ""
+
+var webCC = ""
+var ccNumStored=""
+var completeCardInfo=""
+
+function btn(){
+    
+    var info = document.getElementById("userI").value
+    for (var i = 0; i < info.length; i++) {
+    webCC = webCC + info[i].trim()
+    }
+
+    var i = document.getElementById("ddlViewBy").value
+    
+    while(i < document.getElementById("ddlViewBy").length)
+    {
+        if(document.getElementById("ddlViewBy")[i].innerHTML != "Please select") {
+            if (webCC.length != 0 || webCC.length >= 16){
+                if (document.getElementById("ddlViewBy")[i].selected == true) 
+                {
+                cardType = document.getElementById("ddlViewBy")[i].innerHTML
+                ccNumStored = webCC.substr(12, 16).padStart(16, "X")
+                completeCardInfo = cardType.padEnd(12, " ").concat(ccNumStored.toLowerCase())
+                document.getElementById("p1").innerHTML = completeCardInfo 
+
+                //Empty the string so new values entered do not add on to previous enter input
+                webCC = ""
+                break;
+                }
+            }
+            else
+            {
+                document.getElementById("p1").innerHTML = "Please enter card info"
+                break;
+            }
+        }
+        else 
+        {
+        document.getElementById("p1").innerHTML = "Please select card type"
+        break;
+        }    
+    }
+}
+</script>
+</html>
