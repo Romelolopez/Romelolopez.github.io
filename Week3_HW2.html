@@ -1,0 +1,122 @@
+<!-- Let's create shaped objects
+
+Define a new class called Circle with appropriate attributes and instantiate a few Circle objects.
+Write a function called circle_area that returns the area of the object. 
+Write a function total_sides that returns the number of sides of the object.
+
+Define a new class called Rectangle with appropriate attributes and instantiate a few Rectangle objects.
+Write a function called rectangle_area that returns the area of the given object.
+Write a function total_sides that returns the number of sides of the object.
+
+Define a new class called Square with appropriate attributes and instantiate a few Square objects.
+Write a function called square_area that returns the area of the given object.
+Write a function total_sides that returns the number of sides of the object. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Math Calculation</h1>
+    <div>
+        <p id="circle"></p>
+        <p id="rectangle"></p>
+        <p id="square"></p>
+    </div>
+    
+</body>
+<script>
+
+let circleText = "" 
+
+class Circle {
+
+    constructor(radius) {
+        this.radius = radius
+    }//closing constructor
+
+    circle_area(){
+        let area = Math.PI * (Math.pow(34, 2))
+        circleText = circleText + "The area of this circle is: " + area + "<br>";
+        //return area - not needed since we area pushing area into the HTML
+    }
+
+    total_sides(){
+        let perimeter = 2 * Math.PI * this.radius
+        circleText = circleText + "The perimeter of the circle is: " + perimeter;
+        //return perimeter - not needed since we area pushing area into the HTML
+    }
+}
+//create a new class/ a new circle
+const circle1 = new Circle(34)
+//call the functions to the text can be added on to circleText
+circle1.circle_area();
+circle1.total_sides();
+//add everything in circleText to element with the id "circle"
+document.getElementById("circle").innerHTML = circleText
+
+/* 
+ERROR CHECKING
+console.log(circleText)
+console.log("The area of the circle is: " + circle1.circle_area());
+console.log("The perimeter of the circle is: " + circle1.total_sides()) 
+*/
+
+let recText = ""
+class Rectangle {
+    constructor(length, width) {
+        this.length = length
+        this.width = width
+    }//closing constructor
+
+    rectangle_area(){
+        let area = this.length * this.width
+        recText = recText + "The area of this retangle is: " + area + "<br>";
+        //return area
+    }
+
+    total_sides(){
+        let perimeter = (this.length + this.width) * 2
+        recText = recText + "The perimeter of the rectangle is: " + perimeter;
+        //return perimeter
+    }
+}
+const rec1 = new Rectangle(5, 7)
+rec1.rectangle_area();
+rec1.total_sides();
+document.getElementById("rectangle").innerHTML = recText
+
+
+
+let sqText = ""
+class Square {
+    constructor(side) {
+        this.side = side
+        
+    }//closing constructor
+
+    square_area(){
+        let area = this.side * this.side
+        sqText = sqText + "The area of this square is: " + area + "<br>";
+        //return area
+    }
+
+    total_sides(){
+        let perimeter = 4 * this.side
+        sqText = sqText + "The perimeter of the squre is: " + perimeter;
+        //return perimeter
+    }
+}
+const sq1 = new Square(5)
+sq1.square_area();
+sq1.total_sides();
+document.getElementById("square").innerHTML = sqText
+//console.log("The area of the square is: " +sq1.square_area());
+//console.log("The perimeter of the square is: " + sq1.total_sides())
+
+</script>
+</html>
