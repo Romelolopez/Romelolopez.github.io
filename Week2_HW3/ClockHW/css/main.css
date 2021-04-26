@@ -1,0 +1,18 @@
+.time {
+    padding: 80px 0px;
+    text-align: center;
+}
+
+#circle {
+	background-color: #52b0ee;
+    width: 200px;
+	height: 200px;
+	border-radius: 50%;
+}
+
+#clock {
+    padding: 80px 0px;
+    text-align: center;
+}
+
+

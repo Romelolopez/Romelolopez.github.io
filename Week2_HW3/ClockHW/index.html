@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="./javascript/clock.js"></script>
+    <link rel="stylesheet" href="./css/main.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+</head>
+<body>
+    <div id="controlos">
+        <!-- uncomment for button/text action -->
+        <!-- <input id="txtTempo" type="text" value="10" size="4" maxlength="4"> -->
+        <!-- <button id="btnStart" onclick="submission()">Start</button> -->
+    </div>
+    <h1>Stopwatch Project</h1>
+    <div>
+        <div id="circle">
+            <div id="clock">
+                <div id="time"></div>
+                <div id="center">
+                    <input type="text" class="input" id="minutes" size="2" onkeypress="handle()" /> : 
+                    <input type="text" class="input" id="seconds" size="2" onkeypress="handle()"/> 
+                </div>
+            </div>
+        </div>
+        <button id="reset" onclick="reset()">Reset</button>
+    </div>
+    
+    
+</body>
+<script>
+    function handle(){
+    //This gets the specific key that was pressed 13 = "enter"
+    var key=event.keyCode;
+    //make variables to get value
+    var min = document.getElementById("minutes") 
+    var sec = document.getElementById("seconds") 
+    //get the innerHTML of time
+    var time = document.getElementById("time")
+    //make the if statement to check if the inputs have anything in them
+        
+        if (min.value == "" && sec.value == "" && key==13) {
+            time.innerHTML = "Enter time"
+
+        //if they do, check if enter has been pressed, if it has been, activate submission function.
+        } else if (key==13){
+        submission();
+        }
+    }
+</script>
+</html>
+
+

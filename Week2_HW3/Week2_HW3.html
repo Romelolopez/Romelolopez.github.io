@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body{
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: 100% 100%;
+      background-image: url("https://sportshub.cbsistatic.com/i/r/2021/02/19/c1589242-d721-463b-878f-68dff437391a/thumbnail/1200x675/994c04a9440a614eb712633b7c43df6d/stephcurry-021921.jpg")
+    }
+
+  .container {
+    display: grid;
+    grid-template-columns:  1fr, 1fr, 1fr;
+    grid-template-rows:  1fr, 1fr, 1fr;
+    height: 100vh;
+    width: 100vw;
+
+
+  }
+
+  .Box1{
+    border: 3px solid black;
+    background-color: yellow;
+    border-radius: 50%;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+  .Box1:hover{
+    opacity: 0;
+  }
+  .Box2{
+    border: 3px solid black;
+    background-color: yellow;
+    border-radius: 50%;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+  .Box2:hover{
+    opacity: 0;
+  }
+  .Box3 {
+    border: 3px solid black;
+    background-color: yellow;
+    border-radius: 50%;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+  .Box3:hover{
+    opacity: 0;
+  }
+  .Box4 {
+    border: 3px solid black;
+    background-color: yellow;
+    border-radius: 50%;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+  .Box4:hover{
+    opacity: 0;
+  }
+  .Box5 {
+    border: 3px solid black;
+    background-color: yellow;
+    border-radius: 50%;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+  .Box5:hover{
+    opacity: 0;
+  }
+  .Box6 {
+    border: 3px solid black;
+    background-color: yellow;
+    border-radius: 50%;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+  .Box6:hover{
+    opacity: 0;
+  }
+  .Box7 {
+    border: 3px solid black;
+    background-color: yellow;
+    border-radius: 50%;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 4;
+  }
+  .Box7:hover{
+    opacity: 0;
+  }
+  .Box8 {
+    border: 3px solid black;
+    background-color: yellow;
+    border-radius: 50%;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+  }
+  .Box8:hover{
+    opacity: 0;
+  }
+  .Box9 {
+    border: 3px solid black;
+    background-color: yellow;
+    border-radius: 50%;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 4;
+  }
+  .Box9:hover{
+    opacity: 0;
+  }
+
+  </style>
+</head
+
+
+<body>
+
+  <div class="container" id="container" onclick="changeColor()">
+    <div class="Box1 oval"></div>
+    <div class="Box2 oval"></div>
+    <div class="Box3 oval"></div>
+    <div class="Box4 oval"></div>
+    <div class="Box5 oval"></div>
+    <div class="Box6 oval"></div>
+    <div class="Box7 oval"></div>
+    <div class="Box8 oval"></div>
+    <div class="Box9 oval"></div>
+  </div>
+
+</body>
+<script>
+    var colors = ["blue", "orange", "red", "teal"];
+    var currentColor = 0;
+
+    var ovals = document.getElementsByClassName("oval")
+    //console.log(ovals.length)
+    var container = document.getElementById("container")
+    function changeColor() {
+      console.log("hello");
+      if (currentColor < colors.length) {
+        for (var i = 0; i < ovals.length; i++) {
+          var oval = ovals[i];
+          //console.log(oval);
+          oval.style.backgroundColor = colors[currentColor];
+          //console.log("for loop");
+      }
+
+      } else {
+        currentColor = 0
+        for (var i = 0; i < ovals.length; i++) {
+          var oval = ovals[i];
+          oval.style.backgroundColor = "yellow";
+
+      }
+
+    }
+    console.log(currentColor)
+    currentColor++
+  }
+
+    //container.onclick = changeColor();
+    //document.body.onclick = changeColor()
+
+</script>
+</html>
