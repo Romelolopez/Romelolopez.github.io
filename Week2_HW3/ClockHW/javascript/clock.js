@@ -81,5 +81,10 @@ function reset() {
 		document.getElementById("time").innerHTML = ""
 		//make the cirle blue
 		document.getElementById("circle").style.backgroundColor = "#52b0ee";
+		//empty inputs
+		document.getElementById("minutes").value = ""
+    		document.getElementById("seconds").value = ""
+		//put focus on minutes again
+		document.getElementById("minutes").focus()
 	}
 }
