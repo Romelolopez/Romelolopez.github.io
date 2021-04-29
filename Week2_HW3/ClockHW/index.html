@@ -39,17 +39,37 @@
     var sec = document.getElementById("seconds") 
     //get the innerHTML of time
     var time = document.getElementById("time")
-    //make the if statement to check if the inputs have anything in them
-        
-        if (min.value == "" && sec.value == "" && key==13) {
+    
+    //Check if min input is in focus and user pressed enter, if so, change the focus
+        if (min == document.activeElement && key==13)
+        {
+            sec.focus()
+        }
+        //if the user has enter input in min but not in sec and presses enter a second time, start the clock based off min (submission function())
+        else if (min.value > 0 && sec == document.activeElement && key==13)
+        {
+            submission();
+        }
+        //if nothing has been entered in min or sec and user presses enter. notify the user to enter some input
+        else if (sec == document.activeElement && sec.value == "" && key==13) 
+        {
             time.innerHTML = "Enter time"
 
-        //if they do, check if enter has been pressed, if it has been, activate submission function.
-        } else if (key==13){
-        submission();
+        
+        } 
+        //if sec has a value and the users presses enter, start the clock.
+        else if (key==13)
+        {
+            time.innerHTML = ""
+            submission();
         }
     }
+    
+    window.addEventListener('load', () => {
+        var min = document.getElementById("minutes") 
+        console.log("hey")
+        min.focus()
+    });
 </script>
 </html>
-
 
