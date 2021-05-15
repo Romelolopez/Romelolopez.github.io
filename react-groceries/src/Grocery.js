@@ -66,11 +66,16 @@ class Grocery extends React.Component {
     removeItem(index){
     
      let gCopy = this.state.groceryList.slice()
+     
       gCopy.splice(index, 1)
+
       gCopy[index].isPurchased = !gCopy[index].isPurchased
+      console.log(gCopy[index].isPurchased)
+      console.log(index)
       this.setState({
         groceryList: gCopy,
       }) 
+      
     
     }
     render() {
@@ -99,6 +104,7 @@ class Grocery extends React.Component {
             
             <List groceryList = {this.state.groceryList} removeItem = {this.removeItem}/>
             <Incart groceryList = {this.state.groceryList}/>
+          
         </div>
         
       );

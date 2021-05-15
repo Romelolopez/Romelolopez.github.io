@@ -15,8 +15,9 @@ class List extends React.Component{
         let index = event.target.parentNode.id
         
         this.props.removeItem(index)
-        console.log(event.target.parentNode.attributes[1].value)
-        console.log(this.props.groceryList[index].isPurchased)
+        console.log("index" + index)
+        //console.log(event.target.parentNode.attributes[1].value)
+        //console.log(this.props.groceryList[index].isPurchased)
     }
 
 
