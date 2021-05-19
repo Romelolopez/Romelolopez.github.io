@@ -4,40 +4,26 @@ import './App.css'
 
 
 class Qa extends React.Component {
-    constructor()
-    {
-        super()
-
-
-        this.showAnswer = this.showAnswer.bind(this)
-    }
-// showAnswer is how to toggle the answer to show up 
-    showAnswer()
-    {
-        let showit = document.getElementsByClassName("answer")[0]
-        if(showit.style.display === "block")
-        {
-            showit.style.display = "none"
-        }
-        else
-        {
-            showit.style.display = "block"
-        }
-    }
-
+    
     render()
     {
         return (
-            <div>
+            <div className="qa">
                 <div>
-                    <h3>Category: {this.props.category}</h3>
+                    <p>Category: {this.props.category}</p>
                 </div>
                 <div>
-                    <h3>Question: {this.props.question}</h3>
+                    <p>Value: {this.props.value}</p>
                 </div>
-                <div><button id="answer" onClick = {this.showAnswer}>Answer</button></div>
+                <div>
+                    <p>Question: {this.props.question}</p>
+                </div>
+                <div>
+                    <button id="answer" onClick = {this.props.showAnswer}>Answer</button> 
+                </div>
 
-                <div className="answer">{this.props.answer} </div>
+                <div>{this.props.sA ? this.props.answer: null}</div>
+                
             </div>
         )
     }

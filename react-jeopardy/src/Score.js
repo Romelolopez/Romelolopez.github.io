@@ -1,49 +1,59 @@
 import React from 'react'
 
-
-window.score= 0
-
 class Scores extends React.Component {
     constructor(props)//pulling from jep
     {
         super(props)//pulling from react library
-        this.state = 
-        {
-        }
+        this.state = {count: 0}
+
+        //this.reset = this.reset.bind(this)
+        
     }
 
-    increaseB (){
-        window.score= window.score+1
-        console.log(window.score)
-        document.getElementById("showScore").innerHTML = window.score
+    increment(){
+        this.setState({
+            //updates, tells react this needs to be re-rendered 
+            count: this.state.count + 100
+        }, /*this is equal to bind(this)???*/ ()=>{
+            //callback
+            
+            console.log(this.state.count)
+        })
+        
     }
 
-    decreaseB(){
-        window.score= window.score-1
-        console.log(window.score)
-        document.getElementById("showScore").innerHTML = window.score
+    decrement(){
+        this.setState({
+            //updates, tells react this needs to be re-rendered 
+            count: this.state.count - 100 < 0 ? 0 : this.state.count - 100
+        })
+        //same as ternary operator
+        /* , this is equal to bind(this)??? ()=>{
+            //callback
+            if (this.state.count < 0)
+            {
+                this.setState({count: 0})
+            }
+
+            console.log(this.state.count)
+        }) */
+        
+    }
+
+    reset(){
+        this.setState({count: 0})
     }
 
     render()
     {
         return (
             <div>
-                <div>
-                    <h2>
-                        <button id="increase" onClick={this.increaseB} >Increase</button>
-                    </h2>
+                <p className="count"> Score: {this.state.count} </p>
+                <div className="score">
+                    <button onClick={() => this.increment()} >Increase</button>
+                    <button onClick={() => this.decrement()}>Decrease</button>
+                    <button onClick={() => this.reset()}>Reset</button>
                 </div>
-                <div>
-                    <h2>
-                        <button id="decrease" onClick={this.decreaseB}>Decrease</button>
-                    </h2>
-                </div>
-                <div id="showScore">
-                    <h2>
-                        {window.score}
-                    </h2>
-                </div>
-                {/* <div id="value1">{this.props.value1}</div> */}
             </div>
         )
     }

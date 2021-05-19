@@ -11,9 +11,28 @@ class Triva extends React.Component{
             question:"",
             answer:"",
             category:"",
-            value: ""
+            value: "",
+            sA: true
         }
         this.componentDidMount = this.componentDidMount.bind(this)
+        this.showAnswer = this.showAnswer.bind(this)
+    }
+
+    showAnswer()
+    {
+        /* if (this.state.sA === false)
+        {
+            this.setState({sA: true})
+        }
+        else
+        {
+            this.setState({sA: false})
+        }*/
+
+        //bang operator (research)
+        this.setState({sA: !this.state.sA}) 
+
+        console.log(this.state.sA) 
     }
 
     componentDidMount()
@@ -26,22 +45,25 @@ class Triva extends React.Component{
             this.setState({ question: data[0].question})
             this.setState({ answer: data[0].answer})
             this.setState({ category: data[0].category.title})
+            this.setState({ value: data[0].value})
     })
-    document.getElementsByClassName("answer")[0].style.display = "none"
+    //document.getElementsByClassName("answer")[0].style.display = "none"
+    this.setState({sA: false})
     }
-
+    
     render()
     {
         return (
             <div>
-                <button onClick={this.componentDidMount}>Get Question</button>
-                <Qa category = {this.state.category} question={this.state.question} answer={this.state.answer}/>
+                <h1 className="title">Welcome to Jeopardy</h1>
                 <Scores />
-                <button onClick={() => window.location.reload()}>Reset</button>
-
-                
+                <h1>LET'S PLAY</h1>
+                <div className="question">
+                <button className="question" onClick={this.componentDidMount}>Get Question</button>
+                </div>
+                <Qa category={this.state.category} question={this.state.question} answer={this.state.answer} 
+                value={this.state.value} sA={this.state.sA} showAnswer={this.showAnswer}/>    
             </div>
-
         )
     }
 }
