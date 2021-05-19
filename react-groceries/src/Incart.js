@@ -7,11 +7,15 @@ class Incart extends React.Component{
         this.state = {list : []}
         
         this.handleUpdate = this.handleUpdate.bind(this);
-      }
-  
+        this.handleClick = this.handleClick.bind(this);
+    }
+    handleClick(event) {
+        let index = event.target.parentNode.id
+        this.props.addItem(index)
     
+    }
 
-    handleUpdate(){
+    handleUpdate(event){
         //let index = event.target.parentNode.id
         let filteredGrocery =  this.props.groceryList.filter((item) => {
             if (item.isPurchased === true){
@@ -19,10 +23,10 @@ class Incart extends React.Component{
             } else {
                 return false
             } 
-        }) 
-
+        })  
+        
         //let filteredGrocery = this.props.groceries.filter((item, index) => item.isPurchased ? true:false)
-
+        
         this.setState({
             list: filteredGrocery
         })  
