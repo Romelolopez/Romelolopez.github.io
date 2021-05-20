@@ -8,11 +8,9 @@ class Grocery extends React.Component {
 		super(props);
 		//The state object is where you store property values that belongs to the component.
 		this.state = {
-			purchase: [],
 			groceryList: [{ id: 0, item: "milk", units: "three", quantity: 0, isPurchased: false },
 			{ id: 1, item: "seeds", units: "three", quantity: 1, isPurchased: false },
 			{ id: 2, item: "bread", units: "three", quantity: 1, isPurchased: false }],
-
 			item: '',
 			units: '',
 			quantity: 0,
@@ -20,19 +18,26 @@ class Grocery extends React.Component {
 		};
 		//handleChange is equal to any future instance of handleChange
 		this.handleChange = this.handleChange.bind(this);
-		this.handleSubmit = this.handleSubmit.bind(this);
+		this.addItem = this.addItem.bind(this);
 		this.removeItem = this.removeItem.bind(this);
-		this.getItem = this.getItem.bind(this);
+		this.addToCart = this.addToCart.bind(this);
+		this.reset = this.reset.bind(this);
 	}
 
 	handleChange(event) {
 		//You can control the values of more than one input field by adding a name attribute to each element.
+		//gets the name of the input
 		let n = event.target.name;
+		//gets the value of the input
 		let value = event.target.value;
+		//n & value are equal to state names. This is done so anything entered can set a state 
 		this.setState({ [n]: value })
 	}
 
-	handleSubmit(event) {
+
+	addItem(event)
+	{
+		//after we set a state with entered text, it gets stored in here
 		const newItem = {
 			id: this.state.groceryList.length + 1,
 			item: this.state.item,
@@ -40,49 +45,50 @@ class Grocery extends React.Component {
 			quantity: this.state.quantity,
 			isPurchased: false,
 		};
-
-
+		//We add the new item to the groceryList
 		//Make copy, so you can update the state. (which you normally do not do)
 		let cgl = [...this.state.groceryList, newItem]
 
+		//We turn groceryList into cgl and reset all other the states. This way we can add a new item. 
 		this.setState({
-			//we populate grocerylist with cgl, the new version of the array. we make the changes outside and state it here.
-			//YOU DONT WANT TO CHANGE THE STATE. we are setting the state. its in the name.
-			//concat makes a new array, works the same as cgl
-			//this.state.groceryList.concat([newItem]) 
 			groceryList: cgl,
 			item: '',
 			units: '',
 			quantity: 0,
 			isPurchased: false,
 		}, () => console.log(this.state.groceryList));
+
+
 		event.preventDefault();
 	}
 
-
+	//Remove an item from groceryList
 	removeItem(index) 
 	{
-		console.log(index)
 		//Make a copy of groceryList
 		let gCopy = this.state.groceryList.slice()
 		//Take the selected index out
+		//(index is only possible because of maps used in the component "List")
 		gCopy.splice(index, 1)
-		//Set the state to copy
-		this.setState({
-			groceryList: gCopy,
-		})
-		console.log(this.state.groceryList)
+		//Set the state to the copy
+		this.setState({groceryList: gCopy,})
 	}
 
-	getItem(index)
+	//Add items to cart
+	addToCart(index)
 	{	
-		console.log(index)
-		//let index = event.target.parentNode.id
+		//Makes a copy of grocerylist
 		let newArry = this.state.groceryList.slice()
+		//If the selected index "isPurchased" is false, change it to true. Vise versa
         newArry[index].isPurchased = !newArry[index].isPurchased
+		//Update the state of groceryList
         this.setState({groceryList: newArry})
-		console.log(newArry[0].isPurchased)
-		console.log("newarry"+this.state.groceryList)
+		
+	}
+
+
+	reset(){
+		this.setState({groceryList: []})
 	}
 
 	render() {
@@ -90,7 +96,7 @@ class Grocery extends React.Component {
 			<div>
 				<h1>Grocery List</h1>
 
-				<form onSubmit={this.handleSubmit}>
+				<form onSubmit={this.addItem}>
 					<label>
 						Item:
 						<input type="text" name="item" value={this.state.item} onChange={this.handleChange} />
@@ -109,9 +115,9 @@ class Grocery extends React.Component {
 					<input type="submit" value="Submit" />
 				</form>
 
-				<List groceryList={this.state.groceryList} removeItem={this.removeItem} getItem={this.getItem} />
-				<Incart groceryList={this.state.groceryList} addItem={this.handleToggle} />
-
+				<List groceryList={this.state.groceryList} removeItem={this.removeItem} getItem={this.addToCart} />
+				<Incart groceryList={this.state.groceryList} removeItem={this.removeItem} />
+				<button onClick={this.reset}>reset</button>
 			</div>
 
 		);
