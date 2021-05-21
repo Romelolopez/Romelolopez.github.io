@@ -3,7 +3,7 @@ import Success from './Success'
 import Fail from './Fail'
 
 
-function Login (props) {
+function Login(props) {
     //Manually set the check for user name and password.
     const userCheck = 'melo';
     const passCheck = '098';
@@ -20,7 +20,7 @@ function Login (props) {
     {
         event.preventDefault()
 
-        //checking to input value is equal to user and pass check
+        //checking the input value is equal to user and pass check
         if (userName === userCheck && password === passCheck)
         {
             setShowLogin(<Success userCheck={userName}/>)
