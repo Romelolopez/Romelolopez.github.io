@@ -1,0 +1,20 @@
+#main{
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#login{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  
+}
+button {
+    width: 50px;
+}
+label{
+  display: flex;
+  margin-bottom: 10px;
+}
