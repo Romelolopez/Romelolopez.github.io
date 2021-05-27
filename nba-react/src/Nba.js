@@ -111,7 +111,7 @@ class Nba extends React.Component{
             fetch("https://free-nba.p.rapidapi.com/teams", {
                 "method": "GET",
                 "headers": {
-                    "x-rapidapi-key": "2d97da7ac2msh170f86a79f1b536p1cc028jsnfaefbe0dc526",
+                    "x-rapidapi-key": "ENTER YOUR KEY",
                     "x-rapidapi-host": "free-nba.p.rapidapi.com"
                 }
             })
