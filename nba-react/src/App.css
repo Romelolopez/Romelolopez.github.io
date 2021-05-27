@@ -1,0 +1,90 @@
+.nav{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: rgb(241, 131, 4);
+  color: black;
+}
+
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100vw;
+}
+.data{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-evenly;
+
+  
+}
+
+.mainDiv{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.sp{
+  margin-right: 20px;
+}
+
+.pacDiv{
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width:10vw;
+  
+}
+.pacMan{
+  
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column; 
+}
+
+.search{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 150px;
+  color: white;
+  background-repeat: no-repeat;
+  background-size: 100vw 150px;
+  background-image: url(https://lh3.googleusercontent.com/proxy/BMduaFg3cKM-YVJeAqeCYbB0gOVFSzhJ_EitmsKRcF7sX1wdjscl7UDOeG4FICtk7tSCJUG7EBfYUGwnGMrHkzak0KrE-OdD8wx-NAJp_LUszOAy464bJYRDODYIWcK332HO8n1hUoJqVQ);
+}
+
+/* players{
+  background-position-x: -395px;
+  background-position-y: -242px;
+  background-image: url(/Users/romelolopez/Documents/Romelolopez.github.io/nba-react/src/currydark.jpeg);
+  color: rgb(241, 131, 4);
+
+} */
+
+.buttons{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.home{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.pStats{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+

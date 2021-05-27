@@ -1,0 +1,32 @@
+/* <table>
+                    <div className="tDiv">
+                        <thead>
+                            <tr className="header">
+                                <th>Date</th>
+                                <th>Home Team</th>
+                                <th>Away Team</th>
+                                <th>Score</th>
+                                <th>Result</th>
+                            </tr>
+                        </thead>
+                <tbody >
+                {this.props.teamData.map(sts =>
+         
+                
+                
+                        
+                            <tr key={sts.id} className="data">
+                                <td>{sts.date.substring(5, 10)}</td>
+                                <td>{sts.home_team["abbreviation"]}</td>
+                                <td>{sts.visitor_team["abbreviation"]}</td>
+                                <div className="score"><td>{sts.home_team_score} - {sts.visitor_team_score}</td></div>
+                                <td>{sts.home_team_score > sts.visitor_team_score?'win':'lost'}</td>
+                            </tr>
+                        
+                    
+
+                )}
+                </tbody>
+                </div>
+                </table> */
+                
