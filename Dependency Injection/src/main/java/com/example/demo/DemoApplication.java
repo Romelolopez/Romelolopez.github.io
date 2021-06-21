@@ -37,10 +37,11 @@ public class DemoApplication {
 	//Input for years
 	System.out.println("How many years have you owned the laptop?");
 	p1.getLaptop().setYear(scan.nextInt());
+	scan.nextLine();
 	
 	//Input for borough
 	System.out.println("What borough do you live in?");
-	String town = scan.next();
+	String town = scan.nextLine();
 	p1.getAddress().setBorough(town.substring(0, 1).toUpperCase() + town.substring(1));
 	System.out.println();
 	
